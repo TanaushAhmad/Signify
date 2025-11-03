@@ -1,0 +1,44 @@
+langflow_version: "1.0"
+nodes:
+  - id: audio_chunker
+    type: AudioChunker
+    props:
+      chunk_ms: 1000
+  - id: audio_hasher
+    type: HTTPRequest
+    props:
+      url: http://localhost:8000/api/hash-audio-b64
+      method: POST
+  - id: vosk_asr
+    type: LocalASR
+    props:
+      module: backend.app.models.asr
+      class: VoskASR
+      model_path: backend/models/vosk-model
+  - id: gesture_node
+    type: GestureRecognition
+    props:
+      module: backend.app.models.gesture_recognition
+      class: GestureRecognizer
+      weights_path: backend/models/gesture_weights.pt
+  - id: llm_translate
+    type: LLM
+    props:
+      model_endpoint: http://localhost:9000/generate
+  - id: tts_node
+    type: LocalTTS
+    props:
+      module: backend.app.models.tts
+      class: TTS
+
+connections:
+  - from: audio_chunker
+    to: audio_hasher
+  - from: audio_chunker
+    to: vosk_asr
+  - from: vosk_asr
+    to: llm_translate
+  - from: gesture_node
+    to: llm_translate
+  - from: llm_translate
+    to: tts_node
