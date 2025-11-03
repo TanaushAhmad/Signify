@@ -179,6 +179,35 @@ Below is a simplified overview of how data travels through SignBridge’s multim
                    └────────────────────┘
 ```
 
+
+---
+
+## 🧩 Module Overview
+
+| **Module/File**                        | **Purpose**                                                                   | **Key Responsibilities**                                                                                                                                              | **Interactions**                                                                       |
+| -------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **`app.py`**                           | Main entry point for the backend API.                                         | - Hosts REST endpoints for video/audio analysis.<br>- Connects frontend with AI modules.<br>- Handles JSON/base64 inputs and returns results.                         | Calls functions from `gesture_recognition.py`, `emotion.py`, and `asr.py`.             |
+| **`gesture_recognition.py`**           | Gesture interpretation engine using MediaPipe and a lightweight TFLite model. | - Extracts body, hand, and face landmarks.<br>- Runs a temporal gesture model to classify movement sequences.<br>- Falls back to heuristic cues if model unavailable. | Receives video frames from API.<br>Feeds recognized gestures to LangFlow fusion layer. |
+| **`emotion.py`**                       | Real-time facial emotion recognition module.                                  | - Uses a lightweight CNN or MediaPipe FaceMesh for emotion detection.<br>- Returns primary emotion state (e.g., happy, neutral, sad).                                 | Sends emotion cues to context fusion for combined interpretation.                      |
+| **`asr.py`**                           | Audio-to-text module using open-source speech recognition.                    | - Employs VOSK or Whisper small models for local ASR.<br>- Converts user speech to text in real time.                                                                 | Supplies transcribed text to LangFlow/N8N context fusion.                              |
+| **`fusion_logic.py`**                  | Central reasoning layer that unites gesture, emotion, and ASR data.           | - Aggregates multimodal signals.<br>- Applies rule-based or LangFlow logic to derive contextual meaning.<br>- Formats structured output for frontend.                 | Receives processed data from all three analysis modules.                               |
+| **`n8n_flow/` or `langflow_project/`** | Flow-based orchestration workspace.                                           | - Manages real-time signal routing.<br>- Enables non-linear logic flows using LangFlow or N8N nodes.<br>- Integrates open-source LLM (e.g., Mistral, LLaMA, Phi).     | Interacts with `fusion_logic.py` for semantic processing.                              |
+| **`frontend/`**                        | Web-based user interface for SignBridge.                                      | - Displays live camera feed and translation output.<br>- Sends video/audio streams to backend.<br>- Provides visual and voice feedback.                               | Communicates directly with `app.py` endpoints.                                         |
+| **`models/`**                          | Stores AI model weights (TFLite, ONNX, or PyTorch).                           | - Holds gesture and emotion model binaries.<br>- Facilitates offline/edge inference.                                                                                  | Accessed by `gesture_recognition.py` and `emotion.py`.                                 |
+| **`utils/`**                           | Helper utilities and preprocessing scripts.                                   | - Common data transformations (resizing, normalization).<br>- Logging, error handling, and visualization tools.                                                       | Used by multiple modules for consistent preprocessing.                                 |
+| **`requirements.txt`**                 | Dependency declaration.                                                       | - Lists required libraries (Mediapipe, OpenCV, Torch, etc.).                                                                                                          | Used for local environment setup.                                                      |
+
+---
+
+### 🧠 How It All Fits Together
+
+| **Pipeline Phase**     | **Involved Modules**                             | **Output**                                     |
+| ---------------------- | ------------------------------------------------ | ---------------------------------------------- |
+| **Input Capture**      | Frontend (`frontend/`), `app.py`                 | Raw video/audio streams                        |
+| **Preprocessing**      | `gesture_recognition.py`, `emotion.py`, `asr.py` | Landmarks, emotion state, text transcript      |
+| **Fusion & Reasoning** | `fusion_logic.py`, `langflow_project/`           | Contextual interpretation (intent + sentiment) |
+| **Output Rendering**   | Frontend (`frontend/`), TTS subsystem            | On-screen text and/or spoken translation       |
+
 ---
 
 
