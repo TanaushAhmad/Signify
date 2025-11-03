@@ -122,4 +122,3 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-Would you like me to now add a **short “System Flow Summary Diagram (text-based)**” to the README to visualize how gesture, emotion, and voice data move through the system?
