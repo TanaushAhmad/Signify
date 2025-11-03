@@ -1,15 +1,15 @@
 
 
-# 🧠 SignBridge – AI-Powered Communication Platform
+# Signify – AI-Powered Communication Platform
 
-**SignBridge** is a real-time, AI-driven communication platform that bridges the gap between **spoken language, sign language, and emotional context** using open-source, locally hosted AI models.
+**Signify** is a real-time, AI-driven communication platform that bridges the gap between **spoken language, sign language, and emotional context** using open-source, locally hosted AI models.
 It is designed for accessibility, inclusivity, and offline functionality — empowering individuals who rely on sign language or non-verbal communication to interact seamlessly with others and with digital systems.
 
 ---
 
 ## 🌉 Concept Overview
 
-SignBridge acts as a **multimodal translator** between gesture, voice, text, and emotional cues.
+Signify acts as a **multimodal translator** between gesture, voice, text, and emotional cues.
 It enables two-way communication between sign language users and speakers, ensuring understanding even across communication barriers.
 The platform intelligently analyzes visual gestures, facial expressions, and vocal signals, converting them into coherent text, audio, or visual responses — entirely processed locally without cloud dependencies.
 
@@ -125,7 +125,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ## 🧩 System Flow Summary
 
-Below is a simplified overview of how data travels through SignBridge’s multimodal AI pipeline:
+Below is a simplified overview of how data travels through Signify’s multimodal AI pipeline:
 
 ```
                    ┌────────────────────┐
@@ -192,7 +192,7 @@ Below is a simplified overview of how data travels through SignBridge’s multim
 | **`asr.py`**                           | Audio-to-text module using open-source speech recognition.                    | - Employs VOSK or Whisper small models for local ASR.<br>- Converts user speech to text in real time.                                                                 | Supplies transcribed text to LangFlow/N8N context fusion.                              |
 | **`fusion_logic.py`**                  | Central reasoning layer that unites gesture, emotion, and ASR data.           | - Aggregates multimodal signals.<br>- Applies rule-based or LangFlow logic to derive contextual meaning.<br>- Formats structured output for frontend.                 | Receives processed data from all three analysis modules.                               |
 | **`n8n_flow/` or `langflow_project/`** | Flow-based orchestration workspace.                                           | - Manages real-time signal routing.<br>- Enables non-linear logic flows using LangFlow or N8N nodes.<br>- Integrates open-source LLM (e.g., Mistral, LLaMA, Phi).     | Interacts with `fusion_logic.py` for semantic processing.                              |
-| **`frontend/`**                        | Web-based user interface for SignBridge.                                      | - Displays live camera feed and translation output.<br>- Sends video/audio streams to backend.<br>- Provides visual and voice feedback.                               | Communicates directly with `app.py` endpoints.                                         |
+| **`frontend/`**                        | Web-based user interface for Signify.                                         | - Displays live camera feed and translation output.<br>- Sends video/audio streams to backend.<br>- Provides visual and voice feedback.                               | Communicates directly with `app.py` endpoints.                                         |
 | **`models/`**                          | Stores AI model weights (TFLite, ONNX, or PyTorch).                           | - Holds gesture and emotion model binaries.<br>- Facilitates offline/edge inference.                                                                                  | Accessed by `gesture_recognition.py` and `emotion.py`.                                 |
 | **`utils/`**                           | Helper utilities and preprocessing scripts.                                   | - Common data transformations (resizing, normalization).<br>- Logging, error handling, and visualization tools.                                                       | Used by multiple modules for consistent preprocessing.                                 |
 | **`requirements.txt`**                 | Dependency declaration.                                                       | - Lists required libraries (Mediapipe, OpenCV, Torch, etc.).                                                                                                          | Used for local environment setup.                                                      |
