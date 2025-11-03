@@ -7,7 +7,7 @@ It is designed for accessibility, inclusivity, and offline functionality — emp
 
 ---
 
-## 🌉 Concept Overview
+##  Concept Overview
 
 Signify acts as a **multimodal translator** between gesture, voice, text, and emotional cues.
 It enables two-way communication between sign language users and speakers, ensuring understanding even across communication barriers.
@@ -17,7 +17,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ## ⚙️ Core Features
 
-### 1. 🖐️ Gesture Recognition
+### 1.  Gesture Recognition
 
 * Uses **MediaPipe Holistic** to extract landmarks from the user’s hands, body, and face.
 * Feeds the processed landmarks into a **TensorFlow Lite gesture classification model**.
@@ -27,7 +27,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 2. 😊 Emotion Recognition
+### 2.  Emotion Recognition
 
 * Detects **facial expressions** and micro-movements using camera input.
 * Analyzes emotional states such as happiness, sadness, surprise, anger, or neutrality.
@@ -36,7 +36,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 3. 🎙️ Speech Recognition (ASR)
+### 3.  Speech Recognition (ASR)
 
 * Converts spoken audio into text using an open-source model such as **VOSK**.
 * Functions entirely offline — no internet or cloud API required.
@@ -45,7 +45,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 4. 🔊 Text-to-Speech (TTS)
+### 4.  Text-to-Speech (TTS)
 
 * Synthesizes natural speech from text using **pyttsx3** for local processing.
 * Responds with spoken output in conversational tone.
@@ -53,7 +53,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 5. 🧩 LangFlow Orchestration
+### 5.  LangFlow Orchestration
 
 * The AI workflow is fully visualized and orchestrated via **LangFlow**, connecting all modules:
 
@@ -66,7 +66,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 6. 🧬 Audio Hashing & Traceability
+### 6.  Audio Hashing & Traceability
 
 * Implements a **cryptographic audio hashing** feature to uniquely identify each input.
 * Ensures verifiable evidence and traceability for recorded communications.
@@ -74,7 +74,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 7. 💬 Real-Time WebSocket Communication
+### 7.  Real-Time WebSocket Communication
 
 * A lightweight **FastAPI + WebSocket backend** supports live bi-directional communication.
 * The frontend streams gesture, voice, and emotion data simultaneously.
@@ -82,7 +82,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-### 8. 🧠 Contextual AI Layer
+### 8.  Contextual AI Layer
 
 * An intelligent reasoning layer interprets gesture and emotion data together to infer **context** (e.g., politeness, urgency, affirmation).
 * Can adapt responses dynamically — for instance, toning down TTS output if the user appears upset.
@@ -90,7 +90,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 **Frontend (React)**
 
@@ -111,7 +111,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 
 ---
 
-## 🔒 Design Philosophy
+##  Design Philosophy
 
 1. **Offline-First** – No cloud APIs; fully functional without an internet connection.
 2. **Open-Source Stack** – Every model and library used is community-driven and locally hosted.
@@ -123,7 +123,7 @@ The platform intelligently analyzes visual gestures, facial expressions, and voc
 ---
 
 
-## 🧩 System Flow Summary
+##  System Flow Summary
 
 Below is a simplified overview of how data travels through Signify’s multimodal AI pipeline:
 
@@ -182,7 +182,7 @@ Below is a simplified overview of how data travels through Signify’s multimoda
 
 ---
 
-## 🧩 Module Overview
+##  Module Overview
 
 | **Module/File**                        | **Purpose**                                                                   | **Key Responsibilities**                                                                                                                                              | **Interactions**                                                                       |
 | -------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -199,7 +199,7 @@ Below is a simplified overview of how data travels through Signify’s multimoda
 
 ---
 
-### 🧠 How It All Fits Together
+###  How It All Fits Together
 
 | **Pipeline Phase**     | **Involved Modules**                             | **Output**                                     |
 | ---------------------- | ------------------------------------------------ | ---------------------------------------------- |
