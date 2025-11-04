@@ -24,3 +24,27 @@ async def hash_audio_b64(payload: dict):
         raise HTTPException(status_code=400, detail="b64 missing")
     data = base64.b64decode(b64)
     return {"sha256": hash_audio_bytes(data)}
+
+from fastapi import Body
+from backend.app.langflow.flow_runner import run_langflow
+from backend.app.langflow.ollama_client import query_ollama
+
+@router.post("/fusion/context")
+async def fusion_context(data: dict = Body(...)):
+    gesture = data.get("gesture", "")
+    emotion = data.get("emotion", "")
+    speech = data.get("speech", "")
+
+    # Build a descriptive prompt for AI
+    context_prompt = (
+        f"Gesture: {gesture}\nEmotion: {emotion}\nSpeech: {speech}\n"
+        "Combine these into a meaningful sentence for a translator app."
+    )
+
+    # Call Langflow + Ollama integration
+    lf_result = run_langflow({"text": context_prompt})
+    ollama_result = query_ollama(
+        f"Refine this translation based on user gesture/emotion/speech context:\n{lf_result}"
+    )
+
+    return {"translation": ollama_result}
