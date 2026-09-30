@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "language": "ASL",
+  "rig": {
+    "id": "signify-neutral-v1",
+    "url": null
+  },
+  "signs": [
+    {
+      "id": "hi",
+      "label": "Hi",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/hi.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Hi"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "thank-you",
+      "label": "Thank you",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/thank-you.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Thank you"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/t/thankyou.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "i-love-you",
+      "label": "I love you",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/i-love-you.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "I love you"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/i/ily.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "yes",
+      "label": "Yes",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/yes.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Yes"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/y/yes.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "no",
+      "label": "No",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/no.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "No"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/n/no.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "hello",
+      "label": "Hello",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/hello.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Hello"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "good-morning",
+      "label": "Good morning",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/good-morning.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Good morning"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/g/goodmorning.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "bye",
+      "label": "Bye",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/bye.json",
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Bye"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ],
+  "phrases": [
+    {
+      "text": "Hi",
+      "signIds": [
+        "hi"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Thank you",
+      "signIds": [
+        "thank-you"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/t/thankyou.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "I love you",
+      "signIds": [
+        "i-love-you"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/i/ily.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Yes",
+      "signIds": [
+        "yes"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/y/yes.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "No",
+      "signIds": [
+        "no"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/n/no.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Hello",
+      "signIds": [
+        "hello"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Good morning",
+      "signIds": [
+        "good-morning"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/g/goodmorning.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Bye",
+      "signIds": [
+        "bye"
+      ],
+      "transitionSeconds": 0,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ]
+}
