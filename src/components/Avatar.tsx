@@ -1,8 +1,9 @@
-﻿import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { createNeutralAvatar, disposeAvatar } from "../signing/neutralAvatar";
+import { createNeutralAvatar, disposeAvatar, updateIdle } from "../signing/neutralAvatar";
 import { loadGLTF, loadMotion, SequencePlayer } from "../signing/motion";
 import type { Catalog, Plan } from "../signing/pipeline";
+import { validateRig } from "../signing/rig";
 export interface Frame {
   index: number;
   local: number;
@@ -107,6 +108,7 @@ export function Avatar(props: Props) {
           lastEmit = now;
         }
       }
+      if (root) updateIdle(root, now / 1000);
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(render);
     }
@@ -119,6 +121,7 @@ export function Avatar(props: Props) {
         return;
       }
       root = model;
+      if (props.catalog?.rig.id === "signify-neutral-v1") validateRig(model);
       scene.add(root);
       root.updateMatrixWorld(true);
       bounds = new THREE.Box3().setFromObject(root);
@@ -133,7 +136,14 @@ export function Avatar(props: Props) {
           ),
         );
         if (abort.signal.aborted) return;
-        player = new SequencePlayer(model, clips, props.plan.transitionSeconds);
+        const windows = props.plan.signs.map((sign) => sign.motion);
+        const fluent = windows.every(Boolean) && clips.length > 1;
+        player = new SequencePlayer(
+          model,
+          clips,
+          fluent ? Math.max(props.plan.transitionSeconds, 0.35) : props.plan.transitionSeconds,
+          fluent ? windows : undefined,
+        );
       }
       latest.current.onReady();
     }

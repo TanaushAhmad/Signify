@@ -9,9 +9,16 @@
     {
       "id": "hi",
       "label": "Hi",
+      "aliases": [],
+      "description": "Side-to-side greeting wave, palm outward.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/hi.json",
+      "motion": {
+        "start": 0.6,
+        "end": 2.65
+      },
       "cues": [
         {
           "start": 0,
@@ -27,9 +34,16 @@
     {
       "id": "thank-you",
       "label": "Thank you",
+      "aliases": [],
+      "description": "Flat dominant hand begins near lips and moves forward and slightly down.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/thank-you.json",
+      "motion": {
+        "start": 0.7,
+        "end": 2.35
+      },
       "cues": [
         {
           "start": 0,
@@ -45,9 +59,16 @@
     {
       "id": "i-love-you",
       "label": "I love you",
+      "aliases": [],
+      "description": "ILY handshape: thumb, physical index and little finger extended; middle and ring folded. A lexicalized ILY sign, not sequential fingerspelling.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/i-love-you.json",
+      "motion": {
+        "start": 0.75,
+        "end": 2.5
+      },
       "cues": [
         {
           "start": 0,
@@ -63,9 +84,16 @@
     {
       "id": "yes",
       "label": "Yes",
+      "aliases": [],
+      "description": "S handshape makes two wrist nods.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/yes.json",
+      "motion": {
+        "start": 0.6,
+        "end": 2.5
+      },
       "cues": [
         {
           "start": 0,
@@ -81,9 +109,16 @@
     {
       "id": "no",
       "label": "No",
+      "aliases": [],
+      "description": "Physical index and middle fingers close to the thumb twice, with a small negative headshake.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/no.json",
+      "motion": {
+        "start": 0.6,
+        "end": 2.45
+      },
       "cues": [
         {
           "start": 0,
@@ -99,9 +134,16 @@
     {
       "id": "hello",
       "label": "Hello",
+      "aliases": [],
+      "description": "Flat B hand, fingertips touch forehead then sweep outward and to the side — the standard ASL salute-style hello.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/hello.json",
+      "motion": {
+        "start": 0.55,
+        "end": 2
+      },
       "cues": [
         {
           "start": 0,
@@ -117,16 +159,23 @@
     {
       "id": "good-morning",
       "label": "Good morning",
+      "aliases": [],
+      "description": "Compound GOOD + MORNING, with a supporting base palm/forearm. See also g/good.htm. Contact is approximate on this stylized rig.",
+      "hands": "both",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/good-morning.json",
+      "motion": {
+        "start": 0.6,
+        "end": 3
+      },
       "cues": [
         {
           "start": 0,
           "caption": "Good morning"
         }
       ],
-      "source": "https://www.lifeprint.com/asl101/pages-signs/g/goodmorning.htm",
+      "source": "https://www.lifeprint.com/asl101/pages-signs/m/morning.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
       "reviewedBy": "",
@@ -135,9 +184,18 @@
     {
       "id": "bye",
       "label": "Bye",
+      "aliases": [
+        "Goodbye"
+      ],
+      "description": "Relaxed open-hand farewell wave, palm outward, hand oscillates side to side — the universal goodbye gesture used in ASL.",
+      "hands": "right",
       "kind": "sign",
       "rigId": "signify-neutral-v1",
       "url": "/signing/asl-demo/bye.json",
+      "motion": {
+        "start": 0.5,
+        "end": 2.55
+      },
       "cues": [
         {
           "start": 0,
@@ -145,6 +203,385 @@
         }
       ],
       "source": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "please",
+      "label": "Please",
+      "aliases": [],
+      "description": "Flat hand circles on the chest.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/please.json",
+      "motion": {
+        "start": 0.65,
+        "end": 5.61
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Please"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/p/please.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "sorry",
+      "label": "Sorry",
+      "aliases": [],
+      "description": "A hand circles on the chest; apologetic head inclination.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/sorry.json",
+      "motion": {
+        "start": 0.65,
+        "end": 5.61
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Sorry"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/s/sorry.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "help",
+      "label": "Help",
+      "aliases": [],
+      "description": "The base palm lifts the dominant loose-thumb fist. Neutral HELP, without directional inflection.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/help.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Help"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/help.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "welcome",
+      "label": "Welcome",
+      "aliases": [],
+      "description": "Invitation sense: flat palm draws inward. Not a response to thank you.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/welcome.json",
+      "motion": {
+        "start": 0.65,
+        "end": 1.81
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Welcome"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/welcome.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "name",
+      "label": "Name",
+      "aliases": [],
+      "description": "Two H hands cross and tap twice. The word NAME, not a person's name.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/name.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Name"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "aliases": [],
+      "description": "Two F hands trace an enclosing circle.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/family.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.57
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Family"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/f/family.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "food",
+      "label": "Food",
+      "aliases": [],
+      "description": "Gathered fingertips approach the mouth twice (citation form).",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/food.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Food"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/f/food.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "eat",
+      "label": "Eat",
+      "aliases": [],
+      "description": "Gathered fingertips approach the mouth once.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/eat.json",
+      "motion": {
+        "start": 0.65,
+        "end": 1.81
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Eat"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/e/eat.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "water",
+      "label": "Water",
+      "aliases": [],
+      "description": "W handshape approaches the mouth twice.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/water.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Water"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/water.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "school",
+      "label": "School",
+      "aliases": [],
+      "description": "Dominant flat palm taps the upward base palm twice.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/school.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "School"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/s/school.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "work",
+      "label": "Work",
+      "aliases": [],
+      "description": "Employment/labor sense: dominant S fist taps the base fist/wrist twice.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/work.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Work"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/work.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "mother",
+      "label": "Mother",
+      "aliases": [
+        "Mom"
+      ],
+      "description": "Open 5 hand, thumb near the chin.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/mother.json",
+      "motion": {
+        "start": 0.65,
+        "end": 1.81
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Mother"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/m/mom.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "father",
+      "label": "Father",
+      "aliases": [
+        "Dad"
+      ],
+      "description": "Open 5 hand, thumb near the forehead.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/father.json",
+      "motion": {
+        "start": 0.65,
+        "end": 1.81
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Father"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/d/dad.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "where",
+      "label": "Where",
+      "aliases": [],
+      "description": "Extended index, wrist pivots side to side; furrowed brows.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/where.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Where"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/where.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "what",
+      "label": "What",
+      "aliases": [],
+      "description": "Relaxed open palms move outward with furrowed brows (general question form).",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/asl-demo/what.json",
+      "motion": {
+        "start": 0.65,
+        "end": 2.19
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "What"
+        }
+      ],
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/what.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
       "reviewedBy": "",
@@ -157,7 +594,7 @@
       "signIds": [
         "hi"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -169,7 +606,7 @@
       "signIds": [
         "thank-you"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/t/thankyou.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -181,7 +618,7 @@
       "signIds": [
         "i-love-you"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/i/ily.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -193,7 +630,7 @@
       "signIds": [
         "yes"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/y/yes.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -205,7 +642,7 @@
       "signIds": [
         "no"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/n/no.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -217,7 +654,7 @@
       "signIds": [
         "hello"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
@@ -229,8 +666,8 @@
       "signIds": [
         "good-morning"
       ],
-      "transitionSeconds": 0,
-      "source": "https://www.lifeprint.com/asl101/pages-signs/g/goodmorning.htm",
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/m/morning.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
       "reviewedBy": "",
@@ -241,8 +678,188 @@
       "signIds": [
         "bye"
       ],
-      "transitionSeconds": 0,
+      "transitionSeconds": 0.3,
       "source": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Please",
+      "signIds": [
+        "please"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/p/please.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Sorry",
+      "signIds": [
+        "sorry"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/s/sorry.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Help",
+      "signIds": [
+        "help"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/h/help.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Welcome",
+      "signIds": [
+        "welcome"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/welcome.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Name",
+      "signIds": [
+        "name"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Family",
+      "signIds": [
+        "family"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/f/family.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Food",
+      "signIds": [
+        "food"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/f/food.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Eat",
+      "signIds": [
+        "eat"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/e/eat.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Water",
+      "signIds": [
+        "water"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/water.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "School",
+      "signIds": [
+        "school"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/s/school.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Work",
+      "signIds": [
+        "work"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/work.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Mother",
+      "signIds": [
+        "mother"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/m/mom.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Father",
+      "signIds": [
+        "father"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/d/dad.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Where",
+      "signIds": [
+        "where"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/where.htm",
+      "license": "Project-authored demo keyframes; reference media not redistributed",
+      "validation": "reference-demo",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "What",
+      "signIds": [
+        "what"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.lifeprint.com/asl101/pages-signs/w/what.htm",
       "license": "Project-authored demo keyframes; reference media not redistributed",
       "validation": "reference-demo",
       "reviewedBy": "",

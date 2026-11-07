@@ -1,4 +1,4 @@
-﻿import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Pause, Play, RotateCcw, ScanFace } from "lucide-react";
 import type { Frame } from "./Avatar";
 import type { Catalog, Plan } from "../signing/pipeline";
@@ -169,9 +169,16 @@ export function Playback({
       <div className="viewer-note">
         {sign ? (
           <p>
-            {sign.validation === "reference-demo" ? (
+            {sign.validation === "draft" ? (
               <>
-                ASL reference-based demo — not independently validated.{" "}
+                {plan?.language} DRAFT — approximated from a published text description and not reviewed by a Deaf signer. Do not use for real communication.{" "}
+                <a href={sign.source} target="_blank" rel="noreferrer">
+                  View source
+                </a>
+              </>
+            ) : sign.validation === "reference-demo" ? (
+              <>
+                ASL reference-based demo — not independently validated. Vocabulary playback, not sentence translation.{" "}
                 <a href={sign.source} target="_blank" rel="noreferrer">
                   View sign reference
                 </a>
@@ -188,7 +195,7 @@ export function Playback({
           </p>
         ) : (
           <p>
-            Choose a demo phrase, prepare it, then press Play. The five ASL
+            Choose supported vocabulary, prepare it, then press Play. The ASL
             motions are reference-based approximations, not independently
             validated signing instruction.
           </p>

@@ -1190,3 +1190,34 @@ textarea::placeholder {
   color: rgb(148 163 184);
   font-style: italic;
 }
+.vocabulary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-height: 480px; overflow-y: auto; margin-top: 16px; }
+.vocabulary-entry { padding: 16px; border: 1px solid rgb(148 163 184 / 0.2); border-radius: 12px; background: rgb(15 23 42 / 0.35); }
+.vocabulary-entry .text-button { font-size: 17px; font-weight: 600; }
+.vocabulary-entry p { margin: 8px 0; font-size: 13px; }
+.vocabulary-entry small { display: block; color: #a6b0c4; margin: 8px 0; }
+.vocabulary-entry a { color: #c4b5fd; font-size: 13px; }
+#vocabulary-search { width: 100%; margin-top: 8px; padding: 12px; border: 1px solid #5c4c77; border-radius: 9px; background: #171c30; color: white; }
+#vocabulary { scroll-margin-top: 90px; }
+
+/* Planned-but-not-yet-signed vocabulary (ESL) */
+.pending-vocabulary { margin-top: 1.25rem; }
+.pending-vocabulary ul { columns: 2 14rem; padding-left: 1.1rem; color: var(--muted, #94a3b8); font-size: 0.9rem; }
+.pending-vocabulary li { margin: 0.15rem 0; break-inside: avoid; }
+
+/* Checkbox + label on one line, vertically centred (global inputs are width:100% with padding) */
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.check-row input[type="checkbox"] {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  accent-color: #a855f7;
+}

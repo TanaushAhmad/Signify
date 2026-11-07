@@ -26,3 +26,7 @@ dist-ssr
 .npm-cache/
 test-results/
 playwright-report/
+
+# MediaPipe runtime + models are fetched by scripts/setup-mediapipe.mjs
+public/mediapipe/
+public/models/

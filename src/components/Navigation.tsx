@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { MessageSquare, Shield, Settings, Home, Video } from "lucide-react";
+import { MessageSquare, Settings, Home, Video } from "lucide-react";
 export function Navigation() {
   const items = [
     { to: "/", label: "Home", Icon: Home },
     { to: "/conversation", label: "Start a Conversation", Icon: MessageSquare },
-    { to: "/record-gesture", label: "Record Gestures", Icon: Video },
-    { to: "/security", label: "Security", Icon: Shield },
+    { to: "/record-gesture", label: "Sign Capture", Icon: Video },
     { to: "/settings", label: "Settings", Icon: Settings },
   ];
   return (

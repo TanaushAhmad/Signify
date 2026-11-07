@@ -1,0 +1,8 @@
+{
+  "sides": ["Left", "Right"],
+  "fingers": ["Thumb", "Index", "Middle", "Ring", "Little"],
+  "fingerFlexion": [1.45, 1.65, 1.2],
+  "fingerSpread": 0.32,
+  "thumbLimits": [[-0.2, 1.2, -0.7, 0.7, -1.25, 1.25], [-0.1, 1.3, -0.15, 0.15, -0.15, 0.15], [-0.1, 1.2, -0.1, 0.1, -0.1, 0.1]],
+  "wristLimits": [1.35, 0.15, 0.6]
+}

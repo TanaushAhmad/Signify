@@ -1,5 +1,5 @@
-﻿import { Link } from "react-router-dom";
-import { MessageSquare, Shield, Globe, Brain, Heart, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import { MessageSquare, BookOpen, Globe, Brain, Heart, Zap } from "lucide-react";
 export function Home() {
   const features = [
     {
@@ -11,18 +11,18 @@ export function Home() {
       link: "/conversation",
     },
     {
-      Icon: Shield,
-      title: "Audio Hashing Security",
+      Icon: BookOpen,
+      title: "Supported Vocabulary",
       description:
-        "Explore the audio security concept and text hashing demonstration, with clear privacy information.",
+        "Search the ASL dictionary, view source references, and play supported words and phrases.",
       color: "green",
-      link: "/security",
+      link: "/conversation#vocabulary",
     },
     {
       Icon: Globe,
       title: "Multiple Sign Languages",
       description:
-        "This demo uses American Sign Language (ASL) for five phrases. Other languages are not connected.",
+        "American Sign Language (ASL) vocabulary demo, plus a draft of Emirati Sign Language (ESL) with Arabic input. Other languages are not connected.",
       color: "orange",
       link: "/settings",
     },
@@ -30,7 +30,7 @@ export function Home() {
       Icon: Brain,
       title: "AI-Powered Recognition",
       description:
-        "Preview camera input and the current 3D signing avatar. General sign recognition is not connected yet.",
+        "Recognise signs from a camera or uploaded video using hand shape, position and movement. It says “not sure” instead of guessing.",
       color: "blue",
       link: "/conversation",
     },
@@ -61,7 +61,7 @@ export function Home() {
           communities through speech, text, and visual expression.
         </p>
         <span className="home-status">
-          ASL demo · five reference-based phrase animations
+          ASL demo · ESL draft · reference-based vocabulary animations
         </span>
       </div>
       <div className="feature-grid">

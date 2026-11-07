@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { Globe, Bell, Shield, User } from "lucide-react";
 export function Settings() {
   const [contrast, setContrast] = useState(
@@ -18,9 +18,10 @@ export function Settings() {
           Sign Language Preferences
         </h2>
         <p>
-          The five-phrase demo uses American Sign Language (ASL). Its
-          reference-based animations have not been independently validated.
-          Other languages are not connected.
+          American Sign Language (ASL) has 23 reference-based demo animations.
+          Emirati Sign Language (ESL) is a draft with two animated signs and a
+          list of planned words; none of it has been reviewed by a Deaf signer.
+          Choose the language in Start a Conversation. Other languages are not connected.
         </p>
         <div className="language-options" aria-label="Planned language options">
           {[
@@ -37,8 +38,10 @@ export function Settings() {
               <span>{region}</span>
               <small>
                 {name === "American Sign Language"
-                  ? "Active · five-phrase demo"
-                  : "Not connected"}
+                  ? "Active · vocabulary demo"
+                  : name === "Emirati Sign Language"
+                    ? "Draft · 2 signs, awaiting Deaf signer review"
+                    : "Not connected"}
               </small>
             </div>
           ))}

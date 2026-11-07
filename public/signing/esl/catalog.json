@@ -1,0 +1,485 @@
+{
+  "version": 1,
+  "language": "ESL",
+  "rig": {
+    "id": "signify-neutral-v1",
+    "url": null
+  },
+  "signs": [
+    {
+      "id": "coffee",
+      "label": "Coffee",
+      "aliases": [
+        "قهوة",
+        "gahwa",
+        "Arabic coffee"
+      ],
+      "description": "Draft from a published description: a held imaginary cup is shaken (not lifted to the lips).",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/coffee.json",
+      "motion": {
+        "start": 0.7,
+        "end": 2.5
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Coffee"
+        }
+      ],
+      "labelAr": "قهوة",
+      "source": "https://www.euronews.com/2020/07/03/why-isn-t-there-one-unified-sign-language-in-the-middle-east-region",
+      "license": "Project-authored draft keyframes from a published text description; no source media redistributed",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "dubai",
+      "label": "Dubai",
+      "aliases": [
+        "دبي"
+      ],
+      "description": "Draft from a published description: horizontal G hand, palm sideways, nose tip between index finger and thumb.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/dubai.json",
+      "motion": {
+        "start": 0.8,
+        "end": 2
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Dubai"
+        }
+      ],
+      "labelAr": "دبي",
+      "source": "https://www.handspeak.com/word/7784/",
+      "license": "Project-authored draft keyframes from a published text description; no source media redistributed",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "fine",
+      "label": "Fine",
+      "labelAr": "بخير",
+      "aliases": [
+        "بخير",
+        "I am fine",
+        "I'm fine"
+      ],
+      "description": "As demonstrated in the ESL Zayed video: both hands move in front of the chest, ending in two thumbs-up.",
+      "hands": "both",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/fine.json",
+      "motion": {
+        "start": 0.45,
+        "end": 2.3500000000000005
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Fine"
+        }
+      ],
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "how-are-you",
+      "label": "How are you",
+      "labelAr": "كيف حالك",
+      "aliases": [
+        "كيف حالك",
+        "Kaif halak",
+        "Kayf halak",
+        "How are you doing"
+      ],
+      "description": "As demonstrated in the ESL Zayed video: an open hand with spread fingers on the chest, then a thumbs-up.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/how-are-you.json",
+      "motion": {
+        "start": 0.45,
+        "end": 2.6833
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "How are you"
+        }
+      ],
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "salaam-alaikum",
+      "label": "Salaam Alaikum",
+      "labelAr": "السلام عليكم",
+      "aliases": [
+        "السلام عليكم",
+        "Assalamualaikum",
+        "Assalmualikum",
+        "Assalamualikum",
+        "Assalamu alaikum",
+        "Salaam Alaykum",
+        "As-salamu alaykum",
+        "Peace be upon you",
+        "Salam"
+      ],
+      "description": "As demonstrated in the ESL Zayed video: the right hand salutes at the forehead, then comes down to a fist held near the chest.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/salaam-alaikum.json",
+      "motion": {
+        "start": 0.45,
+        "end": 2.6500000000000004
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Salaam Alaikum"
+        }
+      ],
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "thank-you",
+      "label": "Thank you",
+      "labelAr": "شكرا",
+      "aliases": [
+        "شكرا",
+        "Thanks",
+        "Shukran"
+      ],
+      "description": "As demonstrated in the ESL Zayed video: the right flat hand rises to the side of the face, then moves down and forward toward the chest.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/thank-you.json",
+      "motion": {
+        "start": 0.45,
+        "end": 2.4166
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "Thank you"
+        }
+      ],
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "id": "you-are-welcome",
+      "label": "You are welcome",
+      "labelAr": "عفوا",
+      "aliases": [
+        "عفوا",
+        "You're welcome"
+      ],
+      "description": "As demonstrated in the ESL Zayed video: the flat right hand is placed on the chest.",
+      "hands": "right",
+      "kind": "sign",
+      "rigId": "signify-neutral-v1",
+      "url": "/signing/esl/you-are-welcome.json",
+      "motion": {
+        "start": 0.45,
+        "end": 1.9166999999999998
+      },
+      "cues": [
+        {
+          "start": 0,
+          "caption": "You are welcome"
+        }
+      ],
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ],
+  "phrases": [
+    {
+      "text": "Coffee",
+      "signIds": [
+        "coffee"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.euronews.com/2020/07/03/why-isn-t-there-one-unified-sign-language-in-the-middle-east-region",
+      "license": "Project-authored draft keyframes from a published text description; no source media redistributed",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Dubai",
+      "signIds": [
+        "dubai"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.handspeak.com/word/7784/",
+      "license": "Project-authored draft keyframes from a published text description; no source media redistributed",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Fine",
+      "signIds": [
+        "fine"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "How are you",
+      "signIds": [
+        "how-are-you"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Salaam Alaikum",
+      "signIds": [
+        "salaam-alaikum"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "Thank you",
+      "signIds": [
+        "thank-you"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "text": "You are welcome",
+      "signIds": [
+        "you-are-welcome"
+      ],
+      "transitionSeconds": 0.3,
+      "source": "https://www.instagram.com/esl_zayed/",
+      "license": "Motion data derived from an ESL Zayed (Zayed Higher Organization) reference video; no imagery is stored. Permission to publish derived animations must be confirmed with the Zayed Higher Organization.",
+      "validation": "draft",
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ],
+  "pending": [
+    {
+      "label": "Hello",
+      "labelAr": "مرحبا",
+      "aliases": [
+        "Marhaba",
+        "Ahlan"
+      ]
+    },
+    {
+      "label": "Welcome",
+      "labelAr": "اهلا وسهلا",
+      "aliases": [
+        "Ahlan wa sahlan"
+      ]
+    },
+    {
+      "label": "Thank you very much",
+      "labelAr": "شكرا جزيلا",
+      "aliases": []
+    },
+    {
+      "label": "Please",
+      "labelAr": "من فضلك",
+      "aliases": [
+        "Min fadlak"
+      ]
+    },
+    {
+      "label": "Yes",
+      "labelAr": "نعم",
+      "aliases": []
+    },
+    {
+      "label": "No",
+      "labelAr": "لا",
+      "aliases": []
+    },
+    {
+      "label": "Goodbye",
+      "labelAr": "مع السلامه",
+      "aliases": [
+        "Ma'a salama",
+        "Bye"
+      ]
+    },
+    {
+      "label": "How can I help you?",
+      "labelAr": "كيف استطيع مساعدتك",
+      "aliases": [
+        "How can I help you today"
+      ],
+      "note": "Customer-service phrase from ESL staff training."
+    },
+    {
+      "label": "What is your name?",
+      "labelAr": "ما اسمك",
+      "aliases": [
+        "Shu ismak"
+      ]
+    },
+    {
+      "label": "Water",
+      "labelAr": "ماء",
+      "aliases": [
+        "مي"
+      ]
+    },
+    {
+      "label": "Food",
+      "labelAr": "طعام",
+      "aliases": [
+        "اكل"
+      ]
+    },
+    {
+      "label": "Mother",
+      "labelAr": "ام",
+      "aliases": [
+        "ماما",
+        "Mama"
+      ],
+      "note": "Dictionary 'family' chapter."
+    },
+    {
+      "label": "Father",
+      "labelAr": "اب",
+      "aliases": [
+        "بابا",
+        "Baba"
+      ],
+      "note": "Dictionary 'family' chapter."
+    },
+    {
+      "label": "Family",
+      "labelAr": "عائله",
+      "aliases": [
+        "اسره"
+      ],
+      "note": "Dictionary 'family' chapter."
+    },
+    {
+      "label": "Help",
+      "labelAr": "مساعده",
+      "aliases": []
+    },
+    {
+      "label": "Hospital",
+      "labelAr": "مستشفى",
+      "aliases": []
+    },
+    {
+      "label": "Doctor",
+      "labelAr": "طبيب",
+      "aliases": [
+        "دكتور"
+      ]
+    },
+    {
+      "label": "Bank",
+      "labelAr": "بنك",
+      "aliases": [
+        "مصرف"
+      ]
+    },
+    {
+      "label": "School",
+      "labelAr": "مدرسه",
+      "aliases": []
+    },
+    {
+      "label": "Emirates ID",
+      "labelAr": "الهويه الاماراتيه",
+      "aliases": [
+        "Emirates identity"
+      ],
+      "note": "Official-documents chapter; service training."
+    },
+    {
+      "label": "Salary certificate",
+      "labelAr": "شهاده راتب",
+      "aliases": [],
+      "note": "Official-documents chapter; service training."
+    },
+    {
+      "label": "People of Determination ID",
+      "labelAr": "بطاقه اصحاب الهمم",
+      "aliases": [],
+      "note": "Service training."
+    },
+    {
+      "label": "Ghutra",
+      "labelAr": "غتره",
+      "aliases": [
+        "Headdress"
+      ],
+      "note": "Culture-specific sign cited by the dictionary's compilers (Euronews)."
+    },
+    {
+      "label": "Henna",
+      "labelAr": "حناء",
+      "aliases": [
+        "حنا"
+      ],
+      "note": "Culture-specific; multiple signs exist per Euronews."
+    },
+    {
+      "label": "Oud",
+      "labelAr": "عود",
+      "aliases": [
+        "Oud perfume"
+      ],
+      "note": "Culture-specific; multiple signs exist per Euronews."
+    }
+  ]
+}

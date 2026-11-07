@@ -4,83 +4,14 @@
  */
 import fs from "node:fs";
 import * as THREE from "three";
-const q = (x = 0, y = 0, z = 0) =>
-  new THREE.Quaternion().setFromEuler(new THREE.Euler(x, y, z));
-const bones = [
-  "RightUpperArm",
-  "RightForearm",
-  "RightHand",
-  "Head",
-  ...["Thumb", "Index", "Middle", "Ring", "Little"].flatMap((f) =>
-    [1, 2, 3].map((j) => `Right${f}${j}`),
-  ),
-];
-const rest = Object.fromEntries(
-  bones.map((name) => [
-    name,
-    q(
-      0,
-      0,
-      name === "RightUpperArm" ? -0.13 : name === "RightThumb1" ? 0.65 : 0,
-    ),
-  ]),
-);
-function posed(wrist, orientation, folds = {}, thumb = "open", headYaw = 0, headPitch = 0) {
-  const pose = Object.fromEntries(
-    bones.map((name) => [name, rest[name].clone()]),
-  );
-  const shoulder = new THREE.Vector3(-0.29, 1.29, 0),
-    target = new THREE.Vector3(...wrist);
-  const delta = target.clone().sub(shoulder),
-    d = delta.length(),
-    u = delta.clone().normalize(),
-    a = (0.31 ** 2 - 0.28 ** 2 + d * d) / (2 * d);
-  if (d > 0.589) throw Error("Unreachable wrist target");
-  const bend = new THREE.Vector3(-0.45, -1, 0.1);
-  bend.addScaledVector(u, -bend.dot(u)).normalize();
-  const elbow = shoulder
-    .clone()
-    .addScaledVector(u, a)
-    .addScaledVector(bend, Math.sqrt(0.31 ** 2 - a * a));
-  const upper = new THREE.Quaternion().setFromUnitVectors(
-    new THREE.Vector3(0, -1, 0),
-    elbow.clone().sub(shoulder).normalize(),
-  );
-  const forearm = new THREE.Quaternion().setFromUnitVectors(
-    new THREE.Vector3(0, -1, 0),
-    target.clone().sub(elbow).normalize(),
-  );
-  pose.RightUpperArm = upper;
-  pose.RightForearm = upper.clone().invert().multiply(forearm);
-  pose.RightHand = forearm.clone().invert().multiply(orientation);
-  for (const finger of ["Index", "Middle", "Ring", "Little"]) {
-    const curl = folds[finger] || 0;
-    for (let j = 1; j <= 3; j++)
-      pose[`Right${finger}${j}`] = q(curl * [0.85, 1.5, 0.85][j - 1]);
-  }
-  if (thumb === "open") pose.RightThumb1 = q(0, 0, 1.2);
-  if (thumb === "flat") {
-    pose.RightThumb1 = q(0.1, 0, 0.12);
-    pose.RightThumb2 = q(0.12);
-  }
-  if (thumb === "fist") {
-    pose.RightThumb1 = q(0.65, -0.15, -0.7);
-    pose.RightThumb2 = q(0.55);
-    pose.RightThumb3 = q(0.2);
-  }
-  if (thumb === "pinch") {
-    pose.RightThumb1 = q(0.6, 0, -0.35);
-    pose.RightThumb2 = q(0.35);
-    pose.RightThumb3 = q(0.1);
-  }
-  pose.Head = q(headPitch, headYaw, 0);
-  return pose;
-}
+import { q, rest, posed, posedTo, twoHand, palmOf, v3, flared } from "./rig-authoring.mjs";
+import { everyday, morningSupport, facing, T, PALM_GAP } from "./everyday-signs.mjs";
+import { buildPack } from "./lib/pack-builder.mjs";
 
-// ── Existing sign poses ────────────────────────────────────────────────────
 const hi = (s = 0) =>
   posed([-0.43 + s * 0.06, 1.44, 0.2], q(0, 0, s * 0.25).multiply(q(Math.PI)));
-const thanksA = posed([-0.025, 1.35, 0.19], q(0, 0, Math.PI), {}, "flat");
+// Middle fingertip starts on the chin/lips, then the hand travels forward and down.
+const thanksA = flared(1.0, () => posedTo("MiddleTip", T.chin, q(0, 0, Math.PI), {}, "flat"));
 const thanksB = posed([-0.025, 1.26, 0.46], q(0.7, 0, Math.PI), {}, "flat");
 const ily = posed(
   [-0.32, 1.35, 0.25],
@@ -99,7 +30,7 @@ const no = (closed = false, yaw = 0) =>
   posed(
     [-0.23, 1.31, 0.29],
     q(Math.PI),
-    { Index: 1, Middle: 1, Ring: closed ? 0.8 : 0, Little: closed ? 0.8 : 0 },
+    { Index: closed ? [0.8, 0.65, 0.2] : 0, Middle: closed ? [0.8, 0.65, 0.2] : 0, Ring: 1, Little: 1 },
     closed ? "pinch" : "open",
     yaw,
   );
@@ -107,16 +38,19 @@ const no = (closed = false, yaw = 0) =>
 // ── New sign poses ─────────────────────────────────────────────────────────
 // HELLO — open-hand salute from forehead, then sweep outward
 // Flat B hand: all fingers extended and together, thumb alongside
-const helloA = posed([-0.1, 1.52, 0.18], q(0.2, -0.2, Math.PI * 0.9), {}, "flat");
-const helloB = posed([-0.38, 1.48, 0.22], q(0.1, 0.1, Math.PI * 0.85), {}, "flat");
+// Fingertips touch the side of the forehead (salute), solved against the real head geometry.
+// Palm faces forward/outward (not toward the face), fingers lean toward the temple, elbow flared out.
+const helloA = flared(1.6, () => posedTo("MiddleTip", T.forehead, q(Math.PI - 0.15, 0.1, -0.4), {}, "flat"));
+const helloB = flared(1.6, () => posed([-0.42, 1.5, 0.24], q(Math.PI - 0.1, 0.25, 0.15), {}, "flat"));
 
 // GOOD MORNING — two-part compound sign
 // "Good": flat hand touches chin then sweeps down into open palm
-const goodA = posed([-0.04, 1.38, 0.15], q(0.35, 0, Math.PI), {}, "flat");
-const goodB = posed([-0.04, 1.26, 0.4],  q(0.6, 0, Math.PI * 0.95), {}, "flat");
+const goodA = flared(1.0, () => posedTo("MiddleTip", T.chin, q(0.35, 0, Math.PI), {}, "flat"));
+const baseHand = [[0.005, 1.075, 0.35], facing([-1, 0, 0], [0, 1, 0]), {}, "flat"];
+const goodB = twoHand(baseHand, { point: "Palm", target: () => palmOf("Left").add(v3(0, PALM_GAP, 0)), orientation: q(Math.PI / 2, 0, Math.PI), folds: {}, thumb: "flat" });
 // "Morning": bent arm rises to indicate sun at horizon, head tilts slightly
-const morningA = posed([-0.28, 1.2, 0.3],  q(Math.PI * 0.55, 0, Math.PI), { Middle: 0, Ring: 0, Little: 0 }, "open", 0, 0.05);
-const morningB = posed([-0.28, 1.38, 0.18], q(Math.PI * 0.45, 0, Math.PI), { Middle: 0, Ring: 0, Little: 0 }, "open", 0, -0.05);
+const morningA = posed([-0.18, 1.16, 0.32],  q(Math.PI * 0.55, 0, Math.PI), { Middle: 0, Ring: 0, Little: 0 }, "open", 0, 0.05);
+const morningB = posed([-0.18, 1.20, 0.32], q(Math.PI * 0.3, 0, Math.PI), { Middle: 0, Ring: 0, Little: 0 }, "open", 0, -0.05);
 
 // BYE — open relaxed wave, palm faces out, hand sweeps side to side (looser than Hi)
 const bye = (s = 0) =>
@@ -255,78 +189,35 @@ const specs = [
   },
 ];
 
-const review = (reference) => ({
-  source: `https://www.lifeprint.com/asl101/pages-signs/${reference}`,
+specs.push(...everyday);
+for (const spec of specs) {
+  spec.hands ||= spec.id === "good-morning" ? "both" : "right";
+  spec.aliases ||= spec.id === "bye" ? ["Goodbye"] : [];
+  if (spec.id === "good-morning") {
+    spec.reference = "m/morning.htm";
+    spec.note = "Compound GOOD + MORNING, with a supporting base palm/forearm. See also g/good.htm. Contact is approximate on this stylized rig.";
+    spec.anchors = [[0, rest], [0.6, morningSupport(goodA)], [1.2, goodB],
+      [1.8, morningSupport(morningA, true)], [2.6, morningSupport(morningB, true)],
+      [3, morningSupport(morningB, true)], [3.7, rest]];
+  }
+}
+
+const review = (spec) => ({
+  source: `https://www.lifeprint.com/asl101/pages-signs/${spec.reference}`,
   license: "Project-authored demo keyframes; reference media not redistributed",
   validation: "reference-demo",
   reviewedBy: "",
   reviewedOn: "",
 });
-const catalog = {
-  version: 1,
+const catalog = buildPack({
   language: "ASL",
-  rig: { id: "signify-neutral-v1", url: null },
-  signs: [],
-  phrases: [],
-};
-fs.mkdirSync("public/signing/asl-demo", { recursive: true });
-for (const spec of specs) {
-  const duration = spec.anchors.at(-1)[0],
-    times = Array.from({ length: Math.ceil(duration * 30) + 1 }, (_, i) =>
-      Math.min(i / 30, duration),
-    );
-  times[times.length - 1] = duration;
-  const tracks = bones.map((name) => {
-    const values = times.flatMap((time) => {
-      let i = spec.anchors.findIndex(([t]) => t >= time);
-      if (i <= 0) return rest[name].toArray();
-      const [a, pA] = spec.anchors[i - 1],
-        [b, pB] = spec.anchors[i];
-      let t = (time - a) / (b - a);
-      t = t * t * (3 - 2 * t);
-      return pA[name].clone().slerp(pB[name], t).toArray();
-    });
-    return new THREE.QuaternionKeyframeTrack(
-      `${name}.quaternion`,
-      times,
-      values,
-    );
-  });
-  const clip = new THREE.AnimationClip(`asl-demo-${spec.id}`, duration, tracks);
-  fs.writeFileSync(
-    `public/signing/asl-demo/${spec.id}.json`,
-    JSON.stringify(THREE.AnimationClip.toJSON(clip)) + "\n",
-  );
-  const meta = review(spec.reference);
-  catalog.signs.push({
-    id: spec.id,
-    label: spec.label,
-    kind: "sign",
-    rigId: "signify-neutral-v1",
-    url: `/signing/asl-demo/${spec.id}.json`,
-    cues: [{ start: 0, caption: spec.label }],
-    ...meta,
-  });
-  catalog.phrases.push({
-    text: spec.label,
-    signIds: [spec.id],
-    transitionSeconds: 0,
-    ...meta,
-  });
-}
-fs.writeFileSync(
-  "public/signing/catalog.json",
-  JSON.stringify(catalog, null, 2) + "\n",
-);
-fs.writeFileSync(
-  "public/signing/asl-demo/REFERENCES.md",
-  "# ASL demo animation references\n\nThese are original procedural animation keyframes for the existing Signify rig. They approximate source-described signs and have not been independently validated by an ASL signer. They are not a teaching resource or general sentence translation. No reference images or videos are redistributed.\n\n" +
-    specs
-      .map(
-        (s) =>
-          `- **${s.label}**: ${s.note} Reference: https://www.lifeprint.com/asl101/pages-signs/${s.reference}`,
-      )
-      .join("\n") +
-    "\n\nAll clips have their own motion, handshape, entry, hold, and exit poses. The existing avatar model and mixer are unchanged. Bone-name ordering on the physical right hand is accounted for in the animation authoring script.\n",
-);
-console.log(`Built ${specs.length} distinct reference-based ASL demo clips: ${specs.map(s => s.label).join(", ")}.`);
+  dir: "public/signing/asl-demo",
+  catalogPath: "public/signing/catalog.json",
+  captureDir: "captures/ASL",
+  specs,
+  review,
+  title: "ASL demo animation references",
+  notes: "These are original procedural animation keyframes for the existing Signify rig. They approximate source-described signs and have not been independently validated by an ASL signer. They are not a teaching resource or general sentence translation. No reference images or videos are redistributed.\n\nContact signs (face/chest/hand) are solved against the avatar's real geometry and checked by `node scripts/verify-contacts.mjs`. Motion is C1-continuous quaternion spline interpolation through the authored anchors. Meshes use rigid segments, not skin deformation; facial grammar remains approximate. All assets await independent ASL review.",
+});
+console.log(`Built ${specs.length} ASL clips: ${specs.map(s => s.label).join(", ")}.`);
+await import("./esl-pack.mjs");

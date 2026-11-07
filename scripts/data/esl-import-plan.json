@@ -1,0 +1,21 @@
+[
+  { "file": "scripts/data/esl-zayed-video-1.json", "signs": [
+    { "id": "salaam-alaikum", "label": "Salaam Alaikum", "labelAr": "السلام عليكم",
+      "aliases": ["السلام عليكم", "Assalamualaikum", "Assalmualikum", "Assalamualikum", "Assalamu alaikum", "Salaam Alaykum", "As-salamu alaykum", "Peace be upon you", "Salam"],
+      "note": "As demonstrated in the ESL Zayed video: the right hand salutes at the forehead, then comes down to a fist held near the chest." },
+    { "id": "how-are-you", "label": "How are you", "labelAr": "كيف حالك",
+      "aliases": ["كيف حالك", "Kaif halak", "Kayf halak", "How are you doing"],
+      "note": "As demonstrated in the ESL Zayed video: an open hand with spread fingers on the chest, then a thumbs-up." },
+    { "id": "fine", "label": "Fine", "labelAr": "بخير",
+      "aliases": ["بخير", "I am fine", "I'm fine"],
+      "note": "As demonstrated in the ESL Zayed video: both hands move in front of the chest, ending in two thumbs-up." }
+  ] },
+  { "file": "scripts/data/esl-zayed-video-2.json", "signs": [
+    { "id": "thank-you", "label": "Thank you", "labelAr": "شكرا",
+      "aliases": ["شكرا", "Thanks", "Shukran"],
+      "note": "As demonstrated in the ESL Zayed video: the right flat hand rises to the side of the face, then moves down and forward toward the chest." },
+    { "id": "you-are-welcome", "label": "You are welcome", "labelAr": "عفوا",
+      "aliases": ["عفوا", "You're welcome"],
+      "note": "As demonstrated in the ESL Zayed video: the flat right hand is placed on the chest." }
+  ] }
+]

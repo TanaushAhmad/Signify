@@ -1,4 +1,4 @@
-﻿import * as THREE from "three";
+import * as THREE from "three";
 /** Neutral presentation rig, not signing data. Every joint has a stable track name. */
 export function createNeutralAvatar() {
   const root = new THREE.Group();
@@ -28,6 +28,27 @@ export function createNeutralAvatar() {
     mesh.name = name;
     mesh.position.set(position[0], position[1], position[2]);
     mesh.scale.set(scale[0], scale[1], scale[2]);
+    parent.add(mesh);
+    return mesh;
+  }
+  /** Rounded limb segment hanging down -Y from its bone origin; overlaps neighbours to hide joints. */
+  function limb(
+    parent: THREE.Object3D,
+    name: string,
+    top: number,
+    bottom: number,
+    radiusX: number,
+    radiusZ: number,
+    material: THREE.Material,
+  ) {
+    const length = Math.max(bottom - top - radiusX, 0.001);
+    const mesh = new THREE.Mesh(
+      new THREE.CapsuleGeometry(1, length / radiusX, 6, 16),
+      material,
+    );
+    mesh.name = name;
+    mesh.scale.set(radiusX, radiusX, radiusZ);
+    mesh.position.set(0, -(top + bottom) / 2 - radiusX * 0.1, 0);
     parent.add(mesh);
     return mesh;
   }
@@ -99,13 +120,15 @@ export function createNeutralAvatar() {
     shape(brow, `BrowMesh${side}`, [0, 0, 0], [0.043, 0.008, 0.008], hair);
   }
   const jaw = bone(head, "Jaw", 0, -0.09, 0.08);
-  shape(
-    jaw,
-    "Mouth",
-    [0, 0.023, 0.05],
-    [0.04, 0.005, 0.005],
-    new THREE.MeshStandardMaterial({ color: "#754642" }),
-  );
+  const lip = new THREE.MeshStandardMaterial({ color: "#9a5a52", roughness: 0.6 });
+  shape(jaw, "Mouth", [0, 0.023, 0.05], [0.04, 0.005, 0.005], new THREE.MeshStandardMaterial({ color: "#5a2f2c" }));
+  shape(jaw, "UpperLip", [0, 0.029, 0.052], [0.037, 0.007, 0.009], lip);
+  shape(jaw, "LowerLip", [0, 0.017, 0.051], [0.033, 0.0075, 0.0095], lip);
+  for (const side of [-1, 1]) {
+    // Eyelids start open (scaled flat, tucked above the eye) and are driven by updateIdle().
+    const lid = shape(head, `Eyelid${side}`, [side * 0.059, 0.087, 0.131], [0.036, 0.0, 0.017], skin);
+    lid.userData.openY = 0.087;
+  }
   for (const [side, direction] of [
     ["Left", 1],
     ["Right", -1],
@@ -113,18 +136,15 @@ export function createNeutralAvatar() {
     const shoulder = bone(spine, `${side}Shoulder`, direction * 0.29, 0.37);
     const arm = bone(shoulder, `${side}UpperArm`, 0, 0);
     arm.rotation.z = direction * 0.13;
-    shape(arm, `${side}Sleeve`, [0, -0.11, 0], [0.102, 0.16, 0.104], shirt);
-    shape(arm, `${side}ArmSkin`, [0, -0.21, 0], [0.071, 0.14, 0.074], skin);
+    limb(arm, `${side}Sleeve`, 0.0, 0.2, 0.098, 0.1, shirt);
+    limb(arm, `${side}ArmSkin`, 0.17, 0.31, 0.066, 0.07, skin);
     const elbow = bone(arm, `${side}Forearm`, 0, -0.31);
-    shape(
-      elbow,
-      `${side}ForearmSkin`,
-      [0, -0.13, 0],
-      [0.062, 0.155, 0.066],
-      skin,
-    );
+    shape(elbow, `${side}ElbowJoint`, [0, 0, 0], [0.06, 0.06, 0.062], skin);
+    limb(elbow, `${side}ForearmSkin`, 0.0, 0.29, 0.058, 0.062, skin);
     const hand = bone(elbow, `${side}Hand`, 0, -0.28);
-    shape(hand, `${side}Palm`, [0, -0.047, 0.005], [0.055, 0.077, 0.026], skin);
+    shape(hand, `${side}WristJoint`, [0, 0.0, 0], [0.043, 0.03, 0.036], skin);
+    shape(hand, `${side}Palm`, [0, -0.05, 0.004], [0.057, 0.08, 0.024], skin);
+    shape(hand, `${side}PalmHeel`, [0, -0.02, 0.004], [0.05, 0.04, 0.026], skin);
     ["Index", "Middle", "Ring", "Little"].forEach((finger, index) => {
       let parent: THREE.Object3D = hand;
       const length = [0.033, 0.038, 0.035, 0.028][index];
@@ -132,17 +152,12 @@ export function createNeutralAvatar() {
         const b = bone(
           parent,
           `${side}${finger}${joint}`,
-          joint === 1 ? (index - 1.5) * 0.025 : 0,
+          joint === 1 ? direction * (index - 1.5) * 0.025 : 0,
           joint === 1 ? -0.1 : -length,
-          0.005,
+          joint === 1 ? 0.005 : 0,
         );
-        shape(
-          b,
-          `${b.name}Skin`,
-          [0, -length / 2, 0],
-          [0.012, length * 0.67, 0.013],
-          skin,
-        );
+        const radius = [0.0125, 0.0135, 0.0125, 0.0105][index] * (joint === 3 ? 0.92 : 1);
+        limb(b, `${b.name}Skin`, 0, length, radius, radius * 1.04, skin);
         parent = b;
       }
     });
@@ -153,14 +168,31 @@ export function createNeutralAvatar() {
         `${side}Thumb${joint}`,
         joint === 1 ? -direction * 0.045 : 0,
         joint === 1 ? -0.035 : -0.027,
-        0.01,
+        joint === 1 ? 0.01 : 0,
       );
       if (joint === 1) b.rotation.z = -direction * 0.65;
-      shape(b, `${b.name}Skin`, [0, -0.014, 0], [0.014, 0.022, 0.014], skin);
+      const thumbRadius = [0.0165, 0.0145, 0.0128][joint - 1];
+      limb(b, `${b.name}Skin`, 0, joint === 1 ? 0.04 : 0.032, thumbRadius, thumbRadius, skin);
       parent = b;
     }
   }
   return root;
+}
+/**
+ * Non-signing life: blinking and breathing. Touches only meshes/bones that no sign clip animates
+ * (eyelids, spine scale), so it can never alter a sign pose. Safe to call every frame.
+ */
+export function updateIdle(root: THREE.Object3D, seconds: number) {
+  const phase = seconds % 4.2;
+  const blink = phase > 4.0 ? Math.sin(((phase - 4.0) / 0.2) * Math.PI) : 0; // 0 open … 1 closed
+  root.traverse((object) => {
+    if (object.name.startsWith("Eyelid")) {
+      object.scale.y = 0.0001 + blink * 0.021;
+      object.position.y = (object.userData.openY as number) - blink * 0.014;
+    }
+  });
+  const spine = root.getObjectByName("Spine");
+  if (spine) spine.scale.set(1 + Math.sin(seconds * 1.6) * 0.004, 1 + Math.sin(seconds * 1.6) * 0.006, 1);
 }
 export function disposeAvatar(root: THREE.Object3D) {
   const materials = new Set<THREE.Material>();
